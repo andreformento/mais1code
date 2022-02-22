@@ -1,0 +1,9 @@
+- var btnType = 'info'
+- var btnSize = 'lg'
+
+block content
+  h1 Página de usuários
+
+  ul
+    each usuario in listaDeUsuarios
+      li #{usuario.nome} #{usuario.idade}

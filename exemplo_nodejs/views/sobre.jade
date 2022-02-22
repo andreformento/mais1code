@@ -1,0 +1,11 @@
+- var btnType = 'info'
+- var btnSize = 'lg'
+
+block content
+  h1= minhaVariavel
+  p Tudo sobre #{minhaVariavel}
+
+  form(action="/usuarios" method="POST")
+    input(type='text', value="Seu nome", name='nomeDoUsuario')
+    input(type='text', value="Sua idade", name='idadeDoUsuario')
+    input(type='submit', value='Gravar')
