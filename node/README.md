@@ -17,13 +17,25 @@
 
 4. use um editor de texto e coloque dentro desse arquivo o seguinte conteúdo
   ```Dockerfile
-  FROM node:16.16-alpine3.16
-  RUN mkdir -p /home/node/app/node_modules && chown -R node:node /home/node/app
-  WORKDIR /home/node/app
+  FROM node:0.10.28
+  WORKDIR /usr/src/app
   COPY package*.json ./
-  USER node
   RUN npm install
-  COPY --chown=node:node . .
-  EXPOSE 8090
-  CMD [ "node", "index.js" ]
+  COPY . .
+  EXPOSE 8080
+  CMD [ "node", "server.js" ]
   ```
+
+5. construa (build) a imagem docker com a sua aplicação
+  ```shell
+  docker build . -t node-web-app
+  ```
+
+6. execute o container através da imagem recem criada
+  ```shell
+  docker run -p 3000:3000 node-web-app
+  ```
+
+7. sua aplicação está rodando e pode ser acessada pelo browser através de http://localhost:3000
+
+8. após qualquer alteração realizada na aplicação basta executar os passos `5` e `6` novamente
