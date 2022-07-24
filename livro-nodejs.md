@@ -46,7 +46,7 @@
 
 6. execute o container através da imagem recem criada
   ```shell
-  docker run -p 3000:3000 node-web-app
+  docker run --init -p 3000:3000 node-web-app
   ```
 
 7. sua aplicação está rodando e pode ser acessada pelo browser através de http://localhost:3000
